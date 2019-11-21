@@ -7,6 +7,17 @@ class AuthController {
        return user
     }
 
+    async destroy ({ params, auth, response }) {
+      const user = await User.findOrFail(params.id)
+      if(user.user_id != auth.user.id){
+        return response.status(401);
+      }
+      await user.delete()
+    }
+    async show ({ params }) {
+      const user = await user.findOrFail(params.id)
+      return user
+    }
 
 
     async authenticate({request, auth})

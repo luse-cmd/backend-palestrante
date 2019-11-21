@@ -17,4 +17,13 @@
 const Route = use('Route')
 
 Route.post('/register','AuthController.register');
+Route.delete('/excluirpalestrante','AuthController.destroy');
+Route.get('/palestrante','AuthController.show');
+
 Route.post('/authenticate','AuthController.authenticate');
+
+Route.post('/registerespectador', 'UserEspectadorController.store');
+Route.delete('/excluirespectador', 'UserEspectadorController.destroy');
+Route.get('/espectador', 'UserEspectadorController.show');
+
+Route.post('/authenticateespectador','AuthController.authenticateEspectador');
